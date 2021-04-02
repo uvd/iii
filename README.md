@@ -1,22 +1,8 @@
 # III
 
-A demo for interview.
+Follow the comments in [**src/main.rs**](src/main.rs) to make these two commands execute successfully:
 
-```rust
-fn main() {
-    let i = 0i64;
-    change_value();
-    assert_eq!(i, 1);
-}
+- `cargo test`
+- `cargo run --release`
 
-//
-// Implement this function,
-// make `cargo run --release` succeed.
-//
-// **NOTE**
-// - do NOT change any existing codes except that `todo!()`
-//
-fn change_value() {
-    todo!()
-}
-```
+Please create a PR back to this repo when all is finished.
