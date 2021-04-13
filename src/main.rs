@@ -1,8 +1,8 @@
 #![deny(warnings)]
 
 fn main() {
-    let i = 0i64;
-    change_value();
+    let mut i = 0i64;
+    change_value(&mut i);
     assert_eq!(i, 1);
 }
 
@@ -12,8 +12,8 @@ fn main() {
 // **NOTE**
 // - do NOT change any existing codes except that `todo!()`
 //
-fn change_value() {
-    todo!()
+fn change_value(i: &mut i64) {
+    *i = 1
 }
 
 #[cfg(test)]
@@ -24,6 +24,7 @@ mod test {
 
         {
             // fix this line to make this test pass
+            a.resize(10000001, 0);
             a[10000000] = 1;
         }
 
@@ -35,11 +36,8 @@ mod test {
         let a = async { "Hello World!" };
 
         let b;
-
-        {
-            // fix this line to make this test pass
-            b = a();
-        }
+        use futures::executor::block_on;
+        b = block_on(a);
 
         assert_eq!(b, "Hello World!");
     }
