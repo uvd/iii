@@ -37,7 +37,10 @@ mod test {
 
         let b;
         use futures::executor::block_on;
-        b = block_on(a);
+        {
+            b = block_on(a);
+        }
+
 
         assert_eq!(b, "Hello World!");
     }
